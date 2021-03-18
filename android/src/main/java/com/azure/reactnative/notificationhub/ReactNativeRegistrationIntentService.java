@@ -67,15 +67,15 @@ public class ReactNativeRegistrationIntentService extends JobIntentService {
                                 Log.d(TAG, "NH Registration refreshing with token : " + token);
 
                                 if (isTemplated) {
-                                    regID = hub.registerTemplate(
-                                            token, templateName, template, tags).getRegistrationId();
+                                   // regID = hub.registerTemplate(
+                                   //         token, templateName, template, tags).getRegistrationId();
                                 } else {
-                                    regID = hub.register(token, tags).getRegistrationId();
+                                   // regID = hub.register(token, tags).getRegistrationId();
                                 }
 
                                 Log.d(TAG, "New NH Registration Successfully - RegId : " + regID);
 
-                                notificationHubUtil.setRegistrationID(ReactNativeRegistrationIntentService.this, regID);
+                                notificationHubUtil.setRegistrationID(ReactNativeRegistrationIntentService.this, token);
                                 notificationHubUtil.setFCMToken(ReactNativeRegistrationIntentService.this, token);
 
                                 event.putExtra(
